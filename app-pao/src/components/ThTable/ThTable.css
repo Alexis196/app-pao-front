@@ -1,0 +1,8 @@
+.div-th-table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    border-bottom: 1px solid #cdcdcd;
+    border-radius: 10px 10px 0 0;
+}

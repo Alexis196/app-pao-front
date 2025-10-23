@@ -1,0 +1,14 @@
+.contenedor-general {
+    background-color: var(--rosa-body);
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto);
+    height: 100vh;
+    padding: 20px 0 0;
+}
+
+.linea-navbar{
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    height: 1px;
+}

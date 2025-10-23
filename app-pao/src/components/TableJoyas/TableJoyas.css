@@ -1,0 +1,19 @@
+.contendor-tabla{
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: var(--fondo);
+    padding: 50px 0;
+}
+
+.tabla{
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.thead-encabezado{
+    border-radius: 10px 10px 0 0;
+    background-color: var(--fondo-thead);
+}

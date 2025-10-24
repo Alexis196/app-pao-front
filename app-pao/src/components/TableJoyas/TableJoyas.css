@@ -1,19 +1,29 @@
-.contendor-tabla{
+.contendor-tabla {
     width: 70%;
-    height: 100%;
+    height: 720px;
     margin: 0 auto;
     background-color: var(--fondo);
     padding: 50px 0;
+    border-radius: 0 0 10px 10px;
 }
 
-.tabla{
+.tabla {
     margin: 0 auto;
     width: 90%;
     border: 1px solid red;
     border-radius: 10px;
+    max-height: 600px;
 }
 
-.thead-encabezado{
+.thead-encabezado {
     border-radius: 10px 10px 0 0;
     background-color: var(--fondo-thead);
+}
+
+.no-resultados {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #f54272; 
+  font-weight: 500;
 }

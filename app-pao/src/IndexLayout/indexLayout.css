@@ -1,5 +1,6 @@
 .contenedor-general {
-    background-color: var(--rosa-body);
+    background: linear-gradient(-180deg, #e6bcc6, #f3e3e5, #e6bcc6);
+    /* background-color: var(--rosa-body); */
     font-family: 'Poppins', sans-serif;
     color: var(--texto);
     height: 100vh;

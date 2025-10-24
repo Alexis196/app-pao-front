@@ -1,13 +1,13 @@
 import './indexLayout.css'
 import Navbar from '../components/Navbar/Navbar'
-import TableJoyas from '../components/TableJoyas/TableJoyas'
+import Filter from '../components/Filter/Filter'
 
 const IndexLayout = () => {
   return (
     <div className='contenedor-general'>
         <Navbar/>
         <span className='linea-navbar'></span>
-        <TableJoyas />
+        <Filter />
     </div>
   )
 }

@@ -1,0 +1,33 @@
+.button-container {
+  display: inline-block;
+}
+
+.btn {
+  background-color: #f28ba3; 
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #eebec9; 
+  box-shadow: 0 0 5px #f4b6c2;
+  color: #8f4959;
+  font-weight: 700;
+  border: 1px solid #f28ba3;
+}
+
+.btn:active {
+  background-color: #e7738f;
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px #f4b6c2;
+}

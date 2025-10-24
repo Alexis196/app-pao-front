@@ -1,0 +1,15 @@
+.content-filter {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding: 55px 65px 15px;
+    height: 70px;
+    background: var(--fondo);
+    justify-content: space-between;
+}
+
+.content-filter-search {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

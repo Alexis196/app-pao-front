@@ -9,28 +9,16 @@
     border-radius: 20px 20px 0 0;
 }
 
-.contenedor-logo{
+.contenedor-logo {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 30px;
 }
 
 .navbar-logo {
     height: 100px;
     object-fit: cover;
+    filter: brightness(0) saturate(100%) invert(26%) sepia(83%) saturate(1672%) hue-rotate(314deg) brightness(93%) contrast(92%);
 }
-
-.navbar-buscador {
-    padding: 8px 12px;
-    border: 1px solid #f4b6c2;
-    border-radius: 20px;
-    outline: none;
-    width: 250px;
-    transition: box-shadow 0.3s ease;
-}
-
-.navbar-buscador:focus {
-    box-shadow: 0 0 5px #f4b6c2;
-}
-

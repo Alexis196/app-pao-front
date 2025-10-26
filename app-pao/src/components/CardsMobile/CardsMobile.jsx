@@ -24,7 +24,7 @@ const CardsMobile = forwardRef(({ filtro }, ref) => {
   const obtenerJoyas = async (pagina = 1) => {
     try {
       setLoading(true)
-      const res = await axios.get(`http://localhost:3001/api/joyas?page=${pagina}&limit=${productosPorPagina}`)
+      const res = await axios.get(`https://app-pao-back.onrender.com/api/joyas?page=${pagina}&limit=${productosPorPagina}`)
       const data = res.data
       setJoyas(data.joyas ?? [])
       setTotalPaginas(data.totalPaginas ?? 1)
@@ -53,7 +53,7 @@ const CardsMobile = forwardRef(({ filtro }, ref) => {
 
   const eliminarProducto = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/joyas/${id}`)
+      await axios.delete(`https://app-pao-back.onrender.com/api/joyas/${id}`)
       obtenerJoyas(paginaActual)
     } catch (err) {
       console.error('Error al eliminar el producto:', err)

@@ -47,7 +47,7 @@ const EditProductModal = ({ visible, onClose, producto, onUpdated }) => {
         return
       }
 
-      await axios.put(`http://localhost:3001/api/joyas/${producto._id}`, cambios)
+      await axios.put(`https://app-pao-back.onrender.com/api/joyas/${producto._id}`, cambios)
       onUpdated() // refresca tabla
       onClose()
     } catch (err) {

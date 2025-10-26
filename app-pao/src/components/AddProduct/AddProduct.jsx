@@ -30,7 +30,7 @@ const AddProduct = ({ onAjuste }) => {
 
     try {
       setLoading(true)
-      const res = await axios.post('http://localhost:3001/api/joyas', {
+      const res = await axios.post('https://app-pao-back.onrender.com/api/joyas', {
         codigo: Number(formData.codigo),
         producto: formData.producto.trim(),
         precio: Number(formData.precio),

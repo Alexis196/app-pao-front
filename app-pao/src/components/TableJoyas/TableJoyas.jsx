@@ -10,7 +10,7 @@
 //     const [joyas, setJoyas] = (useState([]))
 
 //     useEffect(() => {
-//         axios.get('http://localhost:3001/api/joyas')
+//         axios.get('https://app-pao-back.onrender.com/api/joyas')
 //             .then(res => {
 //                 setJoyas(res.data)
 //             })
@@ -96,7 +96,7 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
 
   const obtenerJoyas = async (pagina = 1) => {
     try {
-      const res = await axios.get(`http://localhost:3001/api/joyas?page=${pagina}&limit=${joyasPorPagina}`)
+      const res = await axios.get(`https://app-pao-back.onrender.com/api/joyas?page=${pagina}&limit=${joyasPorPagina}`)
       const data = res.data
       const paginaServer = data.paginaActual ?? pagina
       setJoyas(data.joyas ?? [])
@@ -110,7 +110,7 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
   const actualizarCantidad = async (id, nuevaCantidad) => {
     try {
       if (nuevaCantidad < 0) return
-      await axios.put(`http://localhost:3001/api/joyas/${id}`, { cantidad: nuevaCantidad })
+      await axios.put(`https://app-pao-back.onrender.com/api/joyas/${id}`, { cantidad: nuevaCantidad })
       setJoyas(prev => prev.map(j => (j._id === id ? { ...j, cantidad: nuevaCantidad } : j)))
     } catch (err) {
       console.error('Error al actualizar la cantidad:', err)
@@ -124,7 +124,7 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
 
   const eliminarProducto = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/joyas/${id}`)
+      await axios.delete(`https://app-pao-back.onrender.com/api/joyas/${id}`)
       setJoyas(prev => prev.filter(j => j._id !== id))
     } catch (err) {
       console.error('Error al eliminar el producto:', err)

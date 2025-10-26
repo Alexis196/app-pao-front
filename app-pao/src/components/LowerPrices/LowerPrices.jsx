@@ -14,7 +14,7 @@ const LowerPrices = ({ onAjuste }) => {
     }
 
     try {
-      const res = await axios.patch('http://localhost:3001/api/joyas/bajar-precio', {
+      const res = await axios.patch('https://app-pao-back.onrender.com/api/joyas/bajar-precio', {
         porcentaje: valor
       })
       setMensaje(res.data.message)

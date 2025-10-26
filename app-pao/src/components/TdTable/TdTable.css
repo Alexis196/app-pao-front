@@ -1,9 +1,14 @@
-td{
-    border-bottom: 1px solid #ce3f3f;
+td {
+  border-bottom: 1px solid #ce3f3f;
 }
-.div-td-table{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50px;
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.div-td-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
 }

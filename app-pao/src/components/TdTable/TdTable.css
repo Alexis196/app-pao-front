@@ -2,12 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 30px;
+    min-height: 40px;
     border-bottom: 1px solid #cdcdcd;
-}
-
-.div-td-table img{
-    width: 42px;
-    height: 42px; 
-    object-fit: cover;
 }

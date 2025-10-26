@@ -7,9 +7,20 @@
     padding: 20px 0 0;
 }
 
-.linea-navbar{
+.linea-navbar {
     display: flex;
     margin: 0 auto;
     width: 50%;
     height: 1px;
+}
+
+.contenido-filtros {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 55px 65px 15px;
+    height: 70px;
+    background: var(--fondo);
 }

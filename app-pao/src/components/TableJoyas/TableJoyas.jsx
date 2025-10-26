@@ -70,6 +70,8 @@ import './TableJoyas.css'
 import TrTable from '../TrTable/TrTable'
 import ThTable from '../ThTable/ThTable'
 import TdTable from '../TdTable/TdTable'
+import ConfirmModal from '../ConfirmModal/ConfirmModal'
+import EditProductModal from '../EditProductModal/EditProductModal'
 import axios from 'axios'
 import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -78,18 +80,30 @@ import { faPenToSquare, faTrash, faPlus, faMinus } from '@fortawesome/free-solid
 const TableJoyas = forwardRef(({ filtro }, ref) => {
   const [joyas, setJoyas] = useState([])
   const [paginaActual, setPaginaActual] = useState(1)
-  const joyasPorPagina = 15
+  const [totalPaginas, setTotalPaginas] = useState(1)
+  const [modalVisible, setModalVisible] = useState(false)
+  const [productoAEliminar, setProductoAEliminar] = useState(null)
+
+  // estados para editar
+  const [modalEditarVisible, setModalEditarVisible] = useState(false)
+  const [productoAEditar, setProductoAEditar] = useState(null)
+
+  const joyasPorPagina = 10
 
   useEffect(() => {
-    obtenerJoyas()
+    obtenerJoyas(1)
   }, [])
 
-  const obtenerJoyas = async () => {
+  const obtenerJoyas = async (pagina = 1) => {
     try {
-      const res = await axios.get('http://localhost:3001/api/joyas')
-      setJoyas(res.data)
+      const res = await axios.get(`http://localhost:3001/api/joyas?page=${pagina}&limit=${joyasPorPagina}`)
+      const data = res.data
+      const paginaServer = data.paginaActual ?? pagina
+      setJoyas(data.joyas ?? [])
+      setTotalPaginas(data.totalPaginas ?? 1)
+      setPaginaActual(paginaServer)
     } catch (err) {
-      console.error(err)
+      console.error('Error al obtener joyas:', err)
     }
   }
 
@@ -97,12 +111,32 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
     try {
       if (nuevaCantidad < 0) return
       await axios.put(`http://localhost:3001/api/joyas/${id}`, { cantidad: nuevaCantidad })
-      setJoyas(prev =>
-        prev.map(j => (j._id === id ? { ...j, cantidad: nuevaCantidad } : j))
-      )
+      setJoyas(prev => prev.map(j => (j._id === id ? { ...j, cantidad: nuevaCantidad } : j)))
     } catch (err) {
       console.error('Error al actualizar la cantidad:', err)
     }
+  }
+
+  const confirmarEliminacion = (id) => {
+    setProductoAEliminar(id)
+    setModalVisible(true)
+  }
+
+  const eliminarProducto = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/joyas/${id}`)
+      setJoyas(prev => prev.filter(j => j._id !== id))
+    } catch (err) {
+      console.error('Error al eliminar el producto:', err)
+    } finally {
+      setModalVisible(false)
+      setProductoAEliminar(null)
+    }
+  }
+
+  const abrirModalEdicion = (producto) => {
+    setProductoAEditar(producto)
+    setModalEditarVisible(true)
   }
 
   const joyasFiltradas = joyas.filter(joya => {
@@ -112,15 +146,12 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
     return producto.includes(filtroTexto) || codigo.includes(filtroTexto)
   })
 
-  const indiceUltima = paginaActual * joyasPorPagina
-  const indicePrimera = indiceUltima - joyasPorPagina
-  const joyasPaginadas = joyasFiltradas.slice(indicePrimera, indiceUltima)
-  const totalPaginas = Math.ceil(joyasFiltradas.length / joyasPorPagina)
-
-  const cambiarPagina = (numero) => setPaginaActual(numero)
+  const cambiarPagina = (numero) => {
+    obtenerJoyas(numero)
+  }
 
   useImperativeHandle(ref, () => ({
-    refrescar: obtenerJoyas
+    refrescar: () => obtenerJoyas(paginaActual)
   }))
 
   return (
@@ -137,15 +168,14 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
           </TrTable>
         </thead>
         <tbody>
-          {joyasPaginadas.length > 0 ? (
-            joyasPaginadas
+          {joyasFiltradas.length > 0 ? (
+            joyasFiltradas
               .sort((a, b) => Number(a.codigo) - Number(b.codigo))
               .map((joya) => (
                 <TrTable key={joya._id}>
                   <TdTable text={joya.codigo} />
                   <TdTable text={joya.producto} />
                   <TdTable text={`$${joya.precio}`} />
-
                   <TdTable
                     text={
                       <div className={`cantidad-cell ${joya.cantidad < 1 ? 'sin-stock' : ''}`}>
@@ -165,15 +195,20 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
                       </div>
                     }
                   />
-
                   <TdTable text={joya.descripcion} />
                   <TdTable
                     text={
                       <div className="acciones">
-                        <button className="btn-icono editar">
+                        <button
+                          className="btn-icono editar"
+                          onClick={() => abrirModalEdicion(joya)}
+                        >
                           <FontAwesomeIcon icon={faPenToSquare} />
                         </button>
-                        <button className="btn-icono eliminar">
+                        <button
+                          className="btn-icono eliminar"
+                          onClick={() => confirmarEliminacion(joya._id)}
+                        >
                           <FontAwesomeIcon icon={faTrash} />
                         </button>
                       </div>
@@ -204,9 +239,24 @@ const TableJoyas = forwardRef(({ filtro }, ref) => {
           ))}
         </div>
       )}
+
+      {/* Modal de confirmación de eliminación */}
+      <ConfirmModal
+        visible={modalVisible}
+        onConfirm={() => eliminarProducto(productoAEliminar)}
+        onCancel={() => setModalVisible(false)}
+        mensaje="¿Seguro que querés eliminar este producto? Esta acción no se puede deshacer."
+      />
+
+      {/* Modal de edición */}
+      <EditProductModal
+        visible={modalEditarVisible}
+        producto={productoAEditar}
+        onClose={() => setModalEditarVisible(false)}
+        onUpdated={() => obtenerJoyas(paginaActual)}
+      />
     </div>
   )
 })
 
 export default TableJoyas
-

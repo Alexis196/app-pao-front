@@ -28,6 +28,7 @@ import { useRef, useState } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import TableJoyas from '../components/TableJoyas/TableJoyas'
 import Filter from '../components/Filter/Filter'
+import ActionsDropdown from '../components/ActionsDropdown/ActionsDropdown'
 
 const IndexLayout = () => {
   const tablaRef = useRef()
@@ -42,8 +43,12 @@ const IndexLayout = () => {
       <Navbar />
       <span className='linea-navbar'></span>
 
-      {/* 🔍 Pasamos las funciones al filtro */}
-      <Filter onSearch={setFiltro} onAjuste={manejarAjuste} />
+      <div className='contenido-filtros' >
+        <Filter onSearch={setFiltro} />
+        <ActionsDropdown onAjuste={manejarAjuste} />
+      </div>
+
+      {/* 👇 El nuevo dropdown con todas las acciones */}
 
       {/* ✅ Solo una tabla */}
       <TableJoyas ref={tablaRef} filtro={filtro} />

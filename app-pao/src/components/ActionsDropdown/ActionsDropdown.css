@@ -1,0 +1,82 @@
+.actions-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-principal {
+  background-color: #e91e63; /* 💗 Rosa principal del sitio */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.btn-principal:hover {
+  background-color: #d81b60; /* tono más oscuro para hover */
+}
+
+.menu-opciones {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #e6bcc6;
+  border: 1px solid var(--rosa-secundario);
+  border-radius: 10px;
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+
+  animation: fadeInDropdown 0.25s ease-out forwards;
+}
+
+.menu-opciones li {
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto);
+  font-weight: 500;
+  background-color: #e6bcc6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-opciones li:hover {
+  background-color: #d81b60;
+  color: white;
+}
+
+.menu-opciones li svg {
+  color: var(--gris-suave);
+  transition: color 0.3s ease;
+}
+
+.menu-opciones li:hover svg {
+  color: white;
+}
+
+/* Animación sutil */
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.contenedor-opcion {
+  margin-top: 20px;
+}

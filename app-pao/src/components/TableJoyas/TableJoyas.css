@@ -1,30 +1,31 @@
 .contendor-tabla {
-    width: 70%;
-    height: 720px;
-    margin: 0 auto;
-    background-color: var(--fondo);
-    padding: 50px 0;
-    border-radius: 0 0 10px 10px;
+  width: 70%;
+  height: 720px;
+  margin: 0 auto;
+  background-color: var(--fondo);
+  padding: 50px 0;
+  border-radius: 0 0 10px 10px;
 }
 
 .tabla {
-    margin: 0 auto;
-    width: 90%;
-    border: 1px solid red;
-    border-radius: 10px;
-    max-height: 600px;
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid red;
+  border-radius: 10px;
+  max-height: 600px;
 }
 
 .thead-encabezado {
-    border-radius: 10px 10px 0 0;
-    background-color: var(--fondo-thead);
+  border-radius: 10px 10px 0 0;
+  background-color: var(--fondo-thead);
 }
 
 .no-resultados {
   text-align: center;
   padding: 20px;
   font-style: italic;
-  color: #f54272; /* rosa fuerte */
+  color: #f54272;
+  /* rosa fuerte */
   font-weight: 500;
 }
 
@@ -35,6 +36,7 @@
 }
 
 .btn-icono {
+  padding: 5px;
   border: none;
   background: none;
   cursor: pointer;
@@ -43,11 +45,13 @@
 }
 
 .btn-icono.editar {
-  color: #f54272; /* rosa fuerte */
+  color: #f54272;
+  /* rosa fuerte */
 }
 
 .btn-icono.eliminar {
-  color: #d11a2a; /* rojo fuerte */
+  color: #d11a2a;
+  /* rojo fuerte */
 }
 
 .btn-icono:hover {
@@ -85,6 +89,7 @@
 }
 
 .btn-cantidad {
+  display: flex;
   border: none;
   background-color: #f54272;
   color: white;
@@ -94,6 +99,8 @@
   height: 25px;
   cursor: pointer;
   transition: all 0.2s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-cantidad:hover {

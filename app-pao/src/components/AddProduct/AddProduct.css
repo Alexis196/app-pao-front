@@ -1,0 +1,60 @@
+.add-product {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  background-color: var(--fondo-thead);
+  border-radius: 10px;
+  color: var(--texto);
+  font-family: 'Poppins', sans-serif;
+}
+
+.add-product h3 {
+  color: var(--rosa-secundario);
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 8px;
+  border: 1px solid var(--rosa-secundario);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--rosa-principal);
+  box-shadow: 0 0 4px rgba(200, 107, 133, 0.4);
+}
+
+button {
+  background-color: var(--rosa-secundario);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--rosa-principal);
+}
+
+.mensaje {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 5px;
+}

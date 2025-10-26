@@ -1,12 +1,12 @@
-import './Adjust.css'
+import './LowerPrices.css'
 import axios from 'axios'
 import { useState } from 'react'
 
-const Adjust = ({ onAjuste }) => {
+const LowerPrices = ({ onAjuste }) => {
   const [porcentaje, setPorcentaje] = useState(0)
   const [mensaje, setMensaje] = useState('')
 
-  const aplicarAjuste = async () => {
+  const aplicarBaja = async () => {
     const valor = Number(porcentaje)
     if (isNaN(valor) || valor < 0) {
       setMensaje('⚠️ El porcentaje debe ser un número positivo')
@@ -14,31 +14,31 @@ const Adjust = ({ onAjuste }) => {
     }
 
     try {
-      const res = await axios.patch('http://localhost:3001/api/joyas/aumento-precio', {
+      const res = await axios.patch('http://localhost:3001/api/joyas/bajar-precio', {
         porcentaje: valor
       })
       setMensaje(res.data.message)
       onAjuste?.()
     } catch (err) {
-      setMensaje('⚠️ Error al aplicar el ajuste de precios')
+      setMensaje('⚠️ Error al aplicar la baja de precios')
       console.error(err)
     }
   }
 
   return (
-    <div className="aumento-precios">
-      <h3>Ajuste masivo de precios</h3>
+    <div className="baja-precios">
+      <h3>Baja masiva de precios</h3>
       <input
         type="number"
         min="0"
-        placeholder="Porcentaje de aumento"
+        placeholder="Porcentaje de baja"
         value={porcentaje}
         onChange={(e) => setPorcentaje(e.target.value)}
       />
-      <button onClick={aplicarAjuste}>Aplicar ajuste</button>
+      <button onClick={aplicarBaja}>Aplicar baja</button>
       {mensaje && <p>{mensaje}</p>}
     </div>
   )
 }
 
-export default Adjust
+export default LowerPrices

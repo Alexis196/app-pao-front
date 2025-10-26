@@ -53,17 +53,19 @@
 import './Filter.css'
 import Search from '../Search/Search'
 import Button from '../Button/Button'
-import Adjust from '../Adjust/Adjust'
+import ActionsDropdown from '../ActionsDropdown/ActionsDropdown'
+// import Adjust from '../Adjust/Adjust'
 
 const Filter = ({ onSearch, onAjuste }) => {
   return (
     <div className='content-filter'>
       <div className='content-filter-search'>
         <Search onSearch={onSearch} />
-        <Adjust onAjuste={onAjuste} /> {/* 👈 Ahora el ajuste está acá */}
+        {/* <Adjust onAjuste={onAjuste} />  */}
       </div>
 
-      <Button text="Agregar producto" />
+      {/* <ActionsDropdown onAjuste={onAjuste} /> */}
+      {/* <Button text="Agregar producto" /> */}
     </div>
   )
 }

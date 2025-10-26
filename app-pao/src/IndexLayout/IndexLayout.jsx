@@ -1,29 +1,4 @@
-// import { useRef } from 'react'
-// import Navbar from '../components/Navbar/Navbar'
-// import TableJoyas from '../components/TableJoyas/TableJoyas'
-// import Filter from '../components/Filter/Filter'
-// import Adjust from '../components/Adjust/Adjust'
-
-// const IndexLayout = () => {
-//   const tablaRef = useRef()
-
-//   const manejarAjuste = () => {
-//     tablaRef.current?.refrescar() 
-//   }
-
-//   return (
-//     <div className='contenedor-general'>
-//       <Navbar />
-//       <span className='linea-navbar'></span>
-//       <Filter />
-//       <Adjust onAjuste={manejarAjuste} />
-//       <TableJoyas ref={tablaRef} />
-//     </div>
-//   )
-// }
-
-// export default IndexLayout
-import './IndexLayout.css'
+import './indexLayout.css'
 import { useRef, useState, useEffect } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import TableJoyas from '../components/TableJoyas/TableJoyas'

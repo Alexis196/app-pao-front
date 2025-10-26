@@ -35,7 +35,6 @@ const EditProductModal = ({ visible, onClose, producto, onUpdated }) => {
     try {
       const cambios = {}
 
-      // Solo enviar los campos que realmente cambiaron
       Object.keys(formData).forEach(key => {
         if (formData[key] !== producto[key]) {
           cambios[key] = formData[key]

@@ -58,7 +58,7 @@ const IndexLayout = () => {
       </div>
 
       {/* 👇 Mostramos cards o tabla según tamaño */}
-      {windowWidth < 768 ? (
+      {windowWidth < 1024 ? (
         <CardsMobile filtro={filtro} ref={tablaRef} />
       ) : (
         <TableJoyas ref={tablaRef} filtro={filtro} />

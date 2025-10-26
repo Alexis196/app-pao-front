@@ -27,7 +27,7 @@ const Adjust = ({ onAjuste }) => {
 
   return (
     <div className="aumento-precios">
-      <h3>Ajuste masivo de precios</h3>
+      <h3>Aumento masivo de precios</h3>
       <input
         type="number"
         min="0"

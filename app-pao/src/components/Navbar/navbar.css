@@ -45,8 +45,9 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .navbar{
-        width: 90%;
-        margin: 0 auto;
+        width: 96%;
+        margin: 0 auto 20px;
+        border-radius: 10px;
     }
 }
 

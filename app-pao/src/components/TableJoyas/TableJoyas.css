@@ -24,6 +24,100 @@
   text-align: center;
   padding: 20px;
   font-style: italic;
-  color: #f54272; 
+  color: #f54272; /* rosa fuerte */
   font-weight: 500;
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-icono {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-icono.editar {
+  color: #f54272; /* rosa fuerte */
+}
+
+.btn-icono.eliminar {
+  color: #d11a2a; /* rojo fuerte */
+}
+
+.btn-icono:hover {
+  transform: scale(1.2);
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.btn-pagina {
+  border: 1px solid #f54272;
+  background: white;
+  color: #f54272;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-pagina.activa,
+.btn-pagina:hover {
+  background: #f54272;
+  color: white;
+}
+
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-cantidad {
+  border: none;
+  background-color: #f54272;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cantidad:hover {
+  background-color: #ff6b8b;
+  transform: scale(1.1);
+}
+
+.cantidad {
+  font-weight: 500;
+  min-width: 30px;
+  text-align: center;
+}
+
+.cantidad-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cantidad-cell.sin-stock {
+  color: #e60000;
+  font-weight: bold;
+  background-color: #ffe5e5;
+  border-radius: 6px;
+  padding: 2px 6px;
 }

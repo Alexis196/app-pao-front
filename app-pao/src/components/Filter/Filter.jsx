@@ -19,33 +19,55 @@
 
 // export default Filter
 
+// import './Filter.css'
+
+// import { useState } from 'react'
+// import Search from '../Search/Search'
+// // import Select from '../Select/Select'
+// import Button from '../Button/Button'
+// import TableJoyas from '../TableJoyas/TableJoyas'
+// import Adjust from '../Adjust/Adjust'
+
+// const Filter = () => {
+//   const [filtro, setFiltro] = useState('')
+
+//   return (
+//     <div>
+//       <div className='content-filter'>
+//         <div className='content-filter-search'>
+
+//           <Search onSearch={setFiltro} />
+//           <Adjust />
+//         </div>
+
+//         <Button text="Agregar producto" />
+//       </div>
+
+//       <TableJoyas filtro={filtro} />
+//     </div>
+//   )
+// }
+
+// export default Filter
+
 import './Filter.css'
-
-import { useState } from 'react'
 import Search from '../Search/Search'
-// import Select from '../Select/Select'
 import Button from '../Button/Button'
-import TableJoyas from '../TableJoyas/TableJoyas'
+import Adjust from '../Adjust/Adjust'
 
-const Filter = () => {
-  const [filtro, setFiltro] = useState('')
-
+const Filter = ({ onSearch, onAjuste }) => {
   return (
-    <div>
-      <div className='content-filter'>
-        <div className='content-filter-search'>
-
-          <Search onSearch={setFiltro} />
-          {/* <span>Tipo: </span>
-          <Select /> */}
-        </div>
-
-        <Button text="Agregar producto" />
+    <div className='content-filter'>
+      <div className='content-filter-search'>
+        <Search onSearch={onSearch} />
+        <Adjust onAjuste={onAjuste} /> {/* 👈 Ahora el ajuste está acá */}
       </div>
 
-      <TableJoyas filtro={filtro} />
+      <Button text="Agregar producto" />
     </div>
   )
 }
 
 export default Filter
+
+

@@ -1,11 +1,12 @@
 .content-filter {
-    display: flex;
     width: 70%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 55px 65px 15px;
     height: 70px;
     background: var(--fondo);
-    justify-content: space-between;
 }
 
 .content-filter-search {

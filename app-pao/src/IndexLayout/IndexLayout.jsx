@@ -24,15 +24,24 @@
 
 // export default IndexLayout
 import './IndexLayout.css'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import TableJoyas from '../components/TableJoyas/TableJoyas'
+import CardsMobile from '../components/CardsMobile/CardsMobile'
 import Filter from '../components/Filter/Filter'
 import ActionsDropdown from '../components/ActionsDropdown/ActionsDropdown'
 
 const IndexLayout = () => {
   const tablaRef = useRef()
   const [filtro, setFiltro] = useState('')
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  // 👇 detectamos cambios de tamaño de ventana
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const manejarAjuste = () => {
     tablaRef.current?.refrescar()
@@ -43,15 +52,17 @@ const IndexLayout = () => {
       <Navbar />
       <span className='linea-navbar'></span>
 
-      <div className='contenido-filtros' >
+      <div className='contenido-filtros'>
         <Filter onSearch={setFiltro} />
         <ActionsDropdown onAjuste={manejarAjuste} />
       </div>
 
-      {/* 👇 El nuevo dropdown con todas las acciones */}
-
-      {/* ✅ Solo una tabla */}
-      <TableJoyas ref={tablaRef} filtro={filtro} />
+      {/* 👇 Mostramos cards o tabla según tamaño */}
+      {windowWidth < 768 ? (
+        <CardsMobile filtro={filtro} ref={tablaRef} />
+      ) : (
+        <TableJoyas ref={tablaRef} filtro={filtro} />
+      )}
     </div>
   )
 }

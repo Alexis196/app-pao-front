@@ -17,7 +17,7 @@
 
 .thead-encabezado {
   border-radius: 10px 10px 0 0;
-  background-color: var(--fondo-thead);
+  background-color: #ecd4d4;
 }
 
 .no-resultados {
@@ -127,4 +127,22 @@
   background-color: #ffe5e5;
   border-radius: 6px;
   padding: 2px 6px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contendor-tabla {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: var(--fondo);
+    padding: 50px 0;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1360px) {
+  .contendor-tabla {
+    width: 80%;
+  }
 }

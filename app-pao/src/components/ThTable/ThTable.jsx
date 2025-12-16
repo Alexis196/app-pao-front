@@ -1,12 +1,6 @@
 import './ThTable.css'
 const ThTable = ({ text }) => {
-    return (
-        <th>
-            <div className="div-th-table">
-                {text}
-            </div>
-        </th>
-    )
+  return <th>{text}</th>
 }
 
 export default ThTable

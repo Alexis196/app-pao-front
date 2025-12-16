@@ -1,11 +1,7 @@
 import './TdTable.css'
 
 const TdTable = ({ text }) => {
-  return <td>
-            <div className='div-td-table'>
-                {text}
-            </div>
-        </td>;
-};
+  return <td>{text}</td>
+}
 
 export default TdTable

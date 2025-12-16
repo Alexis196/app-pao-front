@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const Search = ({ onSearch }) => {
-  const handleChange = (e) => {
+   const handleChange = (e) => {
     onSearch(e.target.value)
   }
 

@@ -11,7 +11,6 @@ const IndexLayout = () => {
   const [filtro, setFiltro] = useState('')
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-  // 👇 detectamos cambios de tamaño de ventana
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
@@ -23,20 +22,19 @@ const IndexLayout = () => {
   }
 
   return (
-    <div className='contenedor-general'>
+    <div className="contenedor-general">
       <Navbar />
-      <span className='linea-navbar'></span>
+      <span className="linea-navbar"></span>
 
-      <div className='contenido-filtros'>
+      <div className="contenido-filtros">
         <Filter onSearch={setFiltro} />
         <ActionsDropdown onAjuste={manejarAjuste} />
       </div>
 
-      {/* 👇 Mostramos cards o tabla según tamaño */}
       {windowWidth < 1024 ? (
         <CardsMobile filtro={filtro} ref={tablaRef} />
       ) : (
-        <TableJoyas ref={tablaRef} filtro={filtro} />
+        <TableJoyas filtro={filtro} ref={tablaRef} />
       )}
     </div>
   )

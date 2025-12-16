@@ -1,8 +1,11 @@
 import'./TrTable.css'
+import React from 'react'
 
 const TrTable = ({ children }) => {
   return (
-    <tr> {children} </tr>
+    <tr>
+      {React.Children.toArray(children)}
+    </tr>
   )
 }
 

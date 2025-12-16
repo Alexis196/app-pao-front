@@ -2,6 +2,10 @@ td {
   border-bottom: 1px solid #ce3f3f;
 }
 
+tr> td:first-child {
+  text-align: center;
+}
+
 tr:last-child td {
   border-bottom: none;
 }

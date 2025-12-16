@@ -102,7 +102,7 @@ const TableJoyas = forwardRef(
                             <FontAwesomeIcon icon={faMinus} />
                           </button>
 
-                          <span>{joya.cantidad}</span>
+                          <span className="cantidad-span">{joya.cantidad}</span>
 
                           <button
                             onClick={() =>

@@ -120,6 +120,10 @@
   justify-content: center;
   gap: 6px;
 }
+.cantidad-span {
+  min-width: 15px;
+  text-align: center;
+}
 
 .cantidad-cell.sin-stock {
   color: #e60000;
